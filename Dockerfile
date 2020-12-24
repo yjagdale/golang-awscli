@@ -3,7 +3,6 @@ FROM golang:1.15.6
 
 # Add aws cli
 RUN \
-    apk -Uuv add groff less python py-pip git && \
-    pip install awscli && \
-    apk --purge -v del py-pip && \
-    rm /var/cache/apk/*
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    ./aws/install
